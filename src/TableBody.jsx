@@ -1,22 +1,14 @@
+import TableBodyUsers from './TableBodyUsers';
+import TableBodyPosts from './TableBodyPosts';
+import TableBodyComments from './TableBodyComments';
 import './tablebody.css';
 
-const TableBody = ({ content }) => {
+const TableBody = ({ content, activeTab }) => {
   return (
     <tbody className="table__body">
-      {content.map(
-        ({ id, name, username, email, address, phone, website, company }) => (
-          <tr key={id} className="table__row">
-            <td className="table__data">{id}</td>
-            <td className="table__data">{name}</td>
-            <td className="table__data">{username}</td>
-            <td className="table__data">{email}</td>
-            <td className="table__data">{JSON.stringify(address)}</td>
-            <td className="table__data">{phone}</td>
-            <td className="table__data">{website}</td>
-            <td className="table__data">{JSON.stringify(company)}</td>
-          </tr>
-        )
-      )}
+      {activeTab == 'users' && <TableBodyUsers content={content} />}
+      {activeTab == 'posts' && <TableBodyPosts content={content} />}
+      {activeTab == 'comments' && <TableBodyComments content={content} />}
     </tbody>
   );
 };

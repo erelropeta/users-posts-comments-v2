@@ -61,7 +61,7 @@ function App() {
   return (
     <main className="main">
       <Tabs tabLinks={tabLinks} handleActiveTab={handleActiveTab} />
-      {content ? <Content content={content} /> : ''}
+      {content ? <Content content={content} activeTab={activeTab} /> : ''}
     </main>
   );
 }
