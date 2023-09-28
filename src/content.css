@@ -1,0 +1,12 @@
+.content {
+  width: 100%;
+  background-color: var(--clr-surface);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  margin-block: 3rem;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+}

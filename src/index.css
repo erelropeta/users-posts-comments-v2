@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-base: hsl(249deg, 22%, 12%);
+  --clr-surface: hsl(247deg, 23%, 15%);
+  --clr-overlay: hsl(248deg, 25%, 18%);
+  --clr-muted: hsl(249deg, 12%, 47%);
+  --clr-subtle: hsl(248deg, 15%, 61%);
+  --clr-hl-high: hsl(248deg, 13%, 36%);
+  --clr-hl-med: hsl(249deg, 15%, 28%);
+  --clr-hl-low: hsl(244deg, 18%, 15%);
+  --clr-btn-bg: hsl(248deg, 25%, 18%);
+  --clr-btn-bg-hover: hsla(248deg, 25%, 18%, 0.5);
+  --clr-text: hsl(245deg, 50%, 91%);
+  --clr-text-subtle: var(--clr-subtle);
+  --clr-border: var(--clr-hl-high);
+  --clr-thead-border: var(--clr-overlay);
+  --clr-tr-even-bg: hsla(248deg, 25%, 18%, 0.5);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--clr-text);
+  background-color: var(--clr-base);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.main {
+  width: 90vw;
+  min-width: 330px;
+  max-width: 1170px;
+  margin-inline: auto;
+}

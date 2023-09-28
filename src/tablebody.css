@@ -1,0 +1,7 @@
+.table__row:nth-child(even) {
+  background-color: var(--clr-tr-even-bg);
+}
+
+.table__body > .table__row:hover {
+  background-color: var(--clr-overlay);
+}
