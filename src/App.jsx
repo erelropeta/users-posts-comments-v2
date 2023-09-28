@@ -9,26 +9,21 @@ function App() {
       tabName: 'users',
       tabId: 'users-tab',
       isActive: true,
-      url: 'https://jsonplaceholder.typicode.com/users',
     },
     {
       id: 2,
       tabName: 'posts',
       tabId: 'posts-tab',
       isActive: false,
-      url: 'https://jsonplaceholder.typicode.com/posts',
     },
     {
       id: 3,
       tabName: 'comments',
       tabId: 'comments-tab',
       isActive: false,
-      url: 'https://jsonplaceholder.typicode.com/comments',
     },
   ]);
-  const [contentURL, setContentURL] = useState(
-    'https://jsonplaceholder.typicode.com/users'
-  );
+  const [activeTab, setActiveTab] = useState('users');
   const [content, setContent] = useState('');
 
   function handleActiveTab(id) {
@@ -39,13 +34,14 @@ function App() {
     );
 
     setTabLinks(newTabs);
-    setContentURL(activeTab.url);
+    setActiveTab(activeTab.tabName);
   }
 
   useEffect(() => {
     const fetchContent = async () => {
+      const API_URL = `https://jsonplaceholder.typicode.com/${activeTab}`;
       try {
-        const response = await fetch(contentURL);
+        const response = await fetch(API_URL);
 
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
@@ -60,7 +56,7 @@ function App() {
     };
 
     fetchContent();
-  }, [contentURL]);
+  }, [activeTab]);
 
   return (
     <main className="main">
