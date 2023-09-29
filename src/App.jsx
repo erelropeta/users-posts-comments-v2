@@ -25,6 +25,7 @@ function App() {
   ]);
   const [activeTab, setActiveTab] = useState('users');
   const [content, setContent] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleActiveTab(id) {
     const activeTab = tabLinks.find((item) => item.id === id);
@@ -40,6 +41,9 @@ function App() {
   useEffect(() => {
     const fetchContent = async () => {
       const API_URL = `https://jsonplaceholder.typicode.com/${activeTab}`;
+
+      setIsLoading(true);
+
       try {
         const response = await fetch(API_URL);
 
@@ -49,6 +53,9 @@ function App() {
 
         const data = await response.json();
 
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
         setContent(data);
       } catch (error) {
         console.log(error);
@@ -61,7 +68,15 @@ function App() {
   return (
     <main className="main">
       <Tabs tabLinks={tabLinks} handleActiveTab={handleActiveTab} />
-      {content ? <Content content={content} activeTab={activeTab} /> : ''}
+      {content ? (
+        <Content
+          isLoading={isLoading}
+          content={content}
+          activeTab={activeTab}
+        />
+      ) : (
+        ''
+      )}
     </main>
   );
 }

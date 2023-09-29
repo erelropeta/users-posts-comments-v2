@@ -7,6 +7,25 @@
   overflow-x: auto;
 }
 
+.loading {
+  width: 150px;
+  height: 150px;
+  border: 5px solid var(--clr-muted);
+  border-right-color: var(--clr-iris);
+  border-radius: 50%;
+  animation: infinite 1s animateLoading linear;
+  margin: auto;
+}
+
 .table {
   border-collapse: collapse;
+}
+
+@keyframes animateLoading {
+  0% {
+    transform: rotate(-45);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
 }
