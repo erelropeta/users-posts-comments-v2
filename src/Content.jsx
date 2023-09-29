@@ -3,8 +3,6 @@ import TableHeader from './TableHeader';
 import './content.css';
 
 export const Content = ({ isLoading, content, activeTab }) => {
-  const header_list = Object.keys(content[0]);
-
   return (
     <section className="content">
       {isLoading ? (
